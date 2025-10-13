@@ -26,6 +26,7 @@
 <link rel="canonical" href="https://pedro-santoro.github.io/conveniosmedicos/" />
      <link href="css/bootstrap4.css" rel="stylesheet">
 	 <link rel="stylesheet" href="css/footer.css">
+	 <link rel="stylesheet" href="css/poupup.css">
 
   </head>
   <body>
@@ -162,6 +163,25 @@
 						</div></div><br>
 		</article>
 	</section>
+	<article>
+		<button id="abrir-modal" class="btn-abrir">Agendar Consulta</button>
+
+<div id="meuModal" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal">&times;</span>
+        <h2>Agendamento Rápido</h2>
+        <p>Preencha seus dados para entrarmos em contato.</p>
+        
+        <form action="https://formsubmit.co/santoro.perito@gmail.com" method="POST">
+             <input type="text" name="Nome" placeholder="Seu Nome" required>
+			<input type="number" name="telefone" placeholder="Seu whatsapp" required>
+			 <input type="email" name="Email" placeholder="Seu Email" required>
+             <button type="submit" class="btn-enviar">Enviar</button>
+             <input type="hidden" name="_next" value="https://pedro-santoro.github.io/conveniosmedicos/obrigado.html">
+        </form>
+    </div>
+</div>
+	</article>
 		<footer>
 	<br>
 <p align="center">&copy; 2025 Todos os direitos reservados &middot; <a href="https://pedro-santoro.github.io/conveniosmedicos/"><b>pedro-santoro.github.io/conveniosmedicos/</b></a>
@@ -170,5 +190,6 @@
         <script src="js/jquery3.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap4.js"></script>
+	<script src="js/pouppup.js"></script>
 </body>
 </html>
