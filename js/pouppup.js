@@ -1,46 +1,36 @@
-// --- Estrutura Segura para o pouppup.js ---
+// --- Estrutura Segura para o popup.js ---
 
-// 1. Pega o elemento principal do modal
 var modal = document.getElementById("meuModal");
 
-// 2. Checa se o modal realmente existe nesta página
 if (modal) {
-  // SE O MODAL EXISTE, execute TODO o código
-
-  // Pega os outros elementos APENAS se o modal existir
   var btn = document.getElementById("abrir-modal");
   var span = document.getElementsByClassName("fechar-modal")[0];
 
-  // 2. Função para abrir o modal (se você usar o botão)
   if (btn) {
     btn.onclick = function () {
       modal.style.display = "block";
     };
   }
 
-  // 3. Função para fechar o modal ao clicar no 'x'
-  // *Adicionei uma checagem de 'span' aqui também para segurança*
   if (span) {
     span.onclick = function () {
       modal.style.display = "none";
     };
   }
 
-  // 4. Função para fechar o modal ao clicar fora dele
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   };
 
-  // 5. [OPCIONAL] O BLOCO DE CÓDIGO DO NOVO GATILHO DE SAÍDA (Tudo aqui dentro)
-  // *Todo o restante do seu código (cookies, mouseout, setTimeout)
-  // deve vir aqui dentro do 'if (modal) { ... }'*
+  // 🔸 Cria um cookie diferente por página (index/sobre)
+  const pageName = window.location.pathname.includes("sobre") ? "sobre" : "index";
+  const cookieName = "popupShown_" + pageName;
 
-  const hasShownPopup = getCookie("popupShown");
+  const hasShownPopup = getCookie(cookieName);
 
   if (!hasShownPopup) {
-    // Lógica de Desktop (Monitora o mouse)
     document.addEventListener("mouseout", function (e) {
       if (
         e.clientY < 5 &&
@@ -49,20 +39,36 @@ if (modal) {
         e.target.tagName !== "OPTION"
       ) {
         modal.style.display = "block";
-        setCookie("popupShown", "true", 1); // Mostra o pop-up e define o cookie por 1 dia
+        setCookie(cookieName, "true", 1);
       }
     });
 
-    // Lógica para Mobile/Fallback (Tempo)
     setTimeout(function () {
       if (modal.style.display !== "block") {
         modal.style.display = "block";
-        setCookie("popupShown", "true", 1); // Define o cookie por 1 dia
+        setCookie(cookieName, "true", 1);
       }
-    }, 10000); // 10 segundos
+    }, 10000);
   }
-  // As funções de Cookie devem ser definidas antes de serem usadas.
 }
-// Fim do bloco if (modal)
-// A checagem de `if (modal)` garante que o script falhará silenciosamente em páginas sem o pop-up,
-// sem quebrar o código nas páginas que o pop-up existe.
+
+// --- Funções auxiliares para cookie ---
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(";");
+  const cname = name + "=";
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i].trim();
+    if (c.indexOf(cname) == 0) {
+      return c.substring(cname.length, c.length);
+    }
+  }
+  return "";
+}
