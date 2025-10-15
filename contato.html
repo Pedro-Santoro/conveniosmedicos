@@ -128,12 +128,12 @@ Vamos fazer seu contarto...</p><br><br>
         
         <div>
             <label for="celular">Telefone Celular* (Whatsapp):</label>
-            <input type="tel" id="celular" name="celular" required maxlength="15" placeholder="Ex: (99) 99999-9999">
+            <input type="tel" id="telefone_celular" name="telefone_celular" onkeyup="formatarTelefone(this)" required maxlength="15" placeholder="Ex: (99) 99999-9999">
         </div>
         
         <div>
             <label for="telefone">Seu Telefone: (Fixo)</label>
-            <input type="tel" id="telefone" name="telefone" maxlength="12" placeholder="Ex: (99) 9999-9999">
+            <input type="tel" id="telefone_fixo" name="telefone_fixo" onkeyup="formatarTelefone(this)" maxlength="12" placeholder="Ex: (99) 9999-9999">
         </div>
         
         <div>
@@ -262,5 +262,6 @@ Vamos fazer seu contarto...</p><br><br>
 <script src="js/jquery3.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap4.js"></script>
+    <script src="js/tel.js"></script>
  </body>
 </html>

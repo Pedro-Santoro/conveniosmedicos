@@ -1,80 +1,68 @@
-    // 1. Pega os elementos
-    var modal = document.getElementById("meuModal");
-    var btn = document.getElementById("abrir-modal"); // O botão de abrir
-    var span = document.getElementsByClassName("fechar-modal")[0]; // O 'x' de fechar
+// --- Estrutura Segura para o pouppup.js ---
 
-    // 2. Função para abrir o modal (se você usar o botão)
-    if (btn) {
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
+// 1. Pega o elemento principal do modal
+var modal = document.getElementById("meuModal");
+
+// 2. Checa se o modal realmente existe nesta página
+if (modal) {
+  // SE O MODAL EXISTE, execute TODO o código
+
+  // Pega os outros elementos APENAS se o modal existir
+  var btn = document.getElementById("abrir-modal");
+  var span = document.getElementsByClassName("fechar-modal")[0];
+
+  // 2. Função para abrir o modal (se você usar o botão)
+  if (btn) {
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
+  }
+
+  // 3. Função para fechar o modal ao clicar no 'x'
+  // *Adicionei uma checagem de 'span' aqui também para segurança*
+  if (span) {
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+  }
+
+  // 4. Função para fechar o modal ao clicar fora dele
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
+  };
 
-    // 3. Função para fechar o modal ao clicar no 'x'
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+  // 5. [OPCIONAL] O BLOCO DE CÓDIGO DO NOVO GATILHO DE SAÍDA (Tudo aqui dentro)
+  // *Todo o restante do seu código (cookies, mouseout, setTimeout)
+  // deve vir aqui dentro do 'if (modal) { ... }'*
 
-    // 4. Função para fechar o modal ao clicar fora dele
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+  const hasShownPopup = getCookie("popupShown");
 
-    // 5. [OPCIONAL] Faça o modal aparecer automaticamente
-    // Se quiser que ele abra 2 segundos após a página carregar, descomente o bloco abaixo:
-    /*
-    window.onload = function() {
-        setTimeout(function() {
-            modal.style.display = "block";
-        }, 2000); // 2000 milissegundos = 2 segundos
-    }
-        */
-    // 1. Pega os elementos (o resto do seu script)
-    var modal = document.getElementById("meuModal");
-    var btn = document.getElementById("abrir-modal"); 
-    var span = document.getElementsByClassName("fechar-modal")[0]; 
+  if (!hasShownPopup) {
+    // Lógica de Desktop (Monitora o mouse)
+    document.addEventListener("mouseout", function (e) {
+      if (
+        e.clientY < 5 &&
+        e.relatedTarget == null &&
+        e.target.tagName !== "SELECT" &&
+        e.target.tagName !== "OPTION"
+      ) {
+        modal.style.display = "block";
+        setCookie("popupShown", "true", 1); // Mostra o pop-up e define o cookie por 1 dia
+      }
+    });
 
-    // ----------------------------------------------------
-    // NOVO GATILHO DE SAÍDA (EXIT-INTENT)
-    // ----------------------------------------------------
-    
-    // Função auxiliar para verificar/criar cookie
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    function setCookie(name, value, days) {
-        const d = new Date();
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + d.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    // A chave que usaremos para o cookie
-    const hasShownPopup = getCookie('popupShown');
-
-    if (!hasShownPopup) {
-        // --- 1. Lógica para Desktop (Monitora o mouse) ---
-        document.addEventListener('mouseout', function(e) {
-            // Verifica se o movimento do mouse está saindo do topo da página
-            // (e.clientY < 5 é um valor comum para detectar saída)
-            if (e.clientY < 5 && e.relatedTarget == null && e.target.tagName !== 'SELECT' && e.target.tagName !== 'OPTION') {
-                modal.style.display = "block";
-                setCookie('popupShown', 'true', 1); // Mostra o pop-up e define o cookie por 1 dia
-            }
-        });
-
-        // --- 2. Lógica para Mobile/Fallback (Tempo) ---
-        // Para celulares, onde o 'mouseout' não funciona, 
-        // disparamos o pop-up após 10 segundos, por exemplo, como alternativa de saída.
-        setTimeout(function() {
-            if (modal.style.display !== "block") { // Só abre se não estiver já aberto
-                modal.style.display = "block";
-                setCookie('popupShown', 'true', 1); // Define o cookie por 1 dia
-            }
-        }, 10000); // 10000 milissegundos = 10 segundos
-    }
+    // Lógica para Mobile/Fallback (Tempo)
+    setTimeout(function () {
+      if (modal.style.display !== "block") {
+        modal.style.display = "block";
+        setCookie("popupShown", "true", 1); // Define o cookie por 1 dia
+      }
+    }, 10000); // 10 segundos
+  }
+  // As funções de Cookie devem ser definidas antes de serem usadas.
+}
+// Fim do bloco if (modal)
+// A checagem de `if (modal)` garante que o script falhará silenciosamente em páginas sem o pop-up,
+// sem quebrar o código nas páginas que o pop-up existe.
