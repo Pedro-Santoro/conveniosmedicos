@@ -149,22 +149,6 @@
     <input type="submit" name="BTEnvia" value="FALE CONOSCO AGORA!">
     </form>
 </article>			
-<script>
-const form = document.querySelector('.form-contato');
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    mode: 'no-cors'
-  }).then(() => {
-    alert('Mensagem enviada com sucesso!');
-    form.reset();
-  }).catch(() => {
-    alert('Erro ao enviar, tente novamente.');
-  });
-});
-</script>
 
 </div></div></div>
 			</div> 
