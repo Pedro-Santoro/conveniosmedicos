@@ -9,15 +9,26 @@
 <meta name="category" content="Carencia zero planos dentais">
 <meta name="Page-Topic" content="Consultem-nos e agendem uma reunião para fazermos o seu contrato">
 <meta name="author" content="Santoro">
+<link rel="canonical" href="https://pedro-santoro.github.io/conveniosmedicos/sobre.html">
 <meta name="copyright" content="Cotação de Convênios, informações e seguros Médicos Rio de Janeiro">
 <meta name="url" content="https://pedro-santoro.github.io/conveniosmedicos/">
 <meta name="classification" content="Planos e seguros de saúde, laboratórios medicos, Convênios Médicos">
 <meta name="category" content="Planos e seguros de saúde, laboratórios medicos, Convênios Médicos">
 <meta property="publisher" content="Pedro Santoro - Convenios Médicos">
-<meta name="google-site-verification" content="o_vMsBMWi-CEsgRqoofUCHrUCk1G9gug0OYYsI_EoDc" />
+  <meta property="og:title" content="Planos de Saúde - Cuide de quem você ama.">
+  <meta property="og:description" content="Temos as melhores opções venha conferir.">
+  <meta property="og:image" content="https://pedro-santoro.github.io/conveniosmedicos/images/logos-rede-socias.jpg">
+  <meta property="og:url" content="https://pedro-santoro.github.io/conveniosmedicos/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Médicos a sua disposição - Com hora marcada">
+  <meta name="twitter:description" content="Qual plano é ideal?">
+  <meta name="twitter:image" content="https://pedro-santoro.github.io/conveniosmedicos/images/logos-rede-socias.jpg">
      <link href="css/bootstrap4.css" rel="stylesheet">
 	 <link rel="stylesheet" href="css/footer.css">
-
+	 <link rel="stylesheet" href="css/scroll.css">
+<link rel="stylesheet" href="css/poupup.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -50,7 +61,7 @@
           </ul>
 <form class="form-inline my-2 my-lg-0" action="https://www.google.com/search" method="GET">
     
-    <input type="hidden" name="sitesearch" value="seu-usuario.github.io/seu-repositorio">
+    <input type="hidden" name="sitesearch" value="https://pedro-santoro.github.io/conveniosmedicos/">
     
     <input class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search" name="q">
     
@@ -72,10 +83,8 @@
 	<li>sua família </li>
 	<li>sua empresa </li>
 	<li>e também seus funcionários </li>
-	<li>tudo isso você encontra aqui conosco.</li></p>
-       <p class="lead">
-          <a class="btn btn-primary btn-lg"  href="https://planosdesaudebrj.com.br/"  target="_blank" role="button">SAIBA MAIS</a>
-       </p>
+	<li> <a class="btn btn-primary btn-lg"  href="https://planosdesaudebrj.com.br/"  target="_blank" role="button">tudo isso você encontra aqui conosco.</a></li></p>
+  
     </div>
     <div class="container">
        <div class="row text-center">
@@ -95,13 +104,10 @@
 <div><a href="https://wa.me/5521985371561?text=Quero%20fazer%20meu%20plano%20de%20saude%20agora!" target="_blank"><img src="images/whatsapp.png" title="Whatsapp" height="auto" class="img-fluid" alt="Qualquer dúvida podem entrar em contato atraves deste Whatsapp"></a></div><br>
 		</div>
 		<div class="col-lg-6">
-		<figure>
+		<figure><a href="https://planosdesaudebrj.com.br/" target="_blank" role="button">
 	<img src="images/operadoras.png" height="auto" class="img-fluid"  title="operadoras" alt="operadoras" />
-	<figcaption><strong>Muitos planos de saúde a sua disposição.</strong></figcaption>
+	<figcaption><strong>Muitos planos de saúde a sua disposição.</strong></figcaption></a>
 </figure>
-<br>
-<a class="btn btn-primary btn-lg"  href="https://planosdesaudebrj.com.br/" target="_blank" role="button">SAIBA MAIS</a>
-<br>
 </div>		
 	</div>
 	<br>
@@ -177,6 +183,27 @@
 						</div><br>
 		</article>
 	</section>
+	<article>
+		<button id="abrir-modal" class="btn-abrir">Agendar Consulta</button>
+
+<div id="meuModal" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal">&times;</span>
+        <h2>Agendamento Rápido</h2>
+        <p>Preencha seus dados para entrarmos em contato.</p>
+        
+        <form action="https://formsubmit.co/santoro.perito@gmail.com" method="POST">
+			<input type="hidden" name="_template" value="table">
+			  <input type="hidden" name="_next" value="https://pedro-santoro.github.io/conveniosmedicos/obrigado.html">
+             <input type="text" name="Nome" placeholder="Seu Nome" required>
+			<input type="number" name="telefone" placeholder="Seu whatsapp" required>
+			 <input type="email" name="Email" placeholder="Seu Email" required>
+             <button type="submit" class="btn-enviar">Enviar</button>
+             <input type="hidden" name="_next" value="https://pedro-santoro.github.io/conveniosmedicos/obrigado.html">
+        </form>
+    </div>
+</div>
+	</article>
 		<footer>
 <br>
 <p align="center">&copy; 2025 Todos os direitos reservados &middot; <a href="https://pedro-santoro.github.io/conveniosmedicos/">
@@ -186,6 +213,6 @@
         <script src="js/jquery3.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap4.js"></script>
+	<script src="js/pouppup.js"></script>
 	      </body>
 </html>
-
