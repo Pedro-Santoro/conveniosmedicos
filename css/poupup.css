@@ -1,27 +1,35 @@
 /* Configuração da Camada Escura de Fundo (Overlay) */
 .modal {
-    display: none; /* Esconde o modal por padrão */
-    position: fixed; /* Fixa ele na tela, não rola */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    display: none;
+    /* Esconde o modal por padrão */
+    position: fixed;
+    /* Fixa ele na tela, não rola */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Permite rolar se o conteúdo for grande */
-    background-color: rgba(0,0,0,0.7); /* Fundo preto semi-transparente */
+    overflow: auto;
+    /* Permite rolar se o conteúdo for grande */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo preto semi-transparente */
 }
 
 /* Caixa do Conteúdo do Modal */
 .modal-conteudo {
     background-color: #fefefe;
-    margin: 15% auto; /* Centraliza verticalmente (15% do topo) e horizontalmente */
+    margin: 15% auto;
+    /* Centraliza verticalmente (15% do topo) e horizontalmente */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Largura padrão */
-    max-width: 500px; /* Largura máxima */
+    width: 80%;
+    /* Largura padrão */
+    max-width: 500px;
+    /* Largura máxima */
     border-radius: 8px;
     position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
@@ -44,8 +52,15 @@
 
 /* Animação para aparecer suavemente (opcional) */
 @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
 
 /* Estilos básicos para o formulário dentro do modal */
@@ -60,13 +75,128 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
-.modal-conteudo .btn-enviar {
-    background-color: #4CAF50; /* Cor verde de exemplo */
+
+/* 1. Estilização base do botão (Assumindo que você já tem algo parecido) */
+.btn-enviar {
+    background-color: #55d85c;
+    /* Verde atual (ajuste se a cor for diferente) */
     color: white;
     padding: 10px 20px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
     width: 100%;
-    opacity: 0.9;
-    border-radius: 4px;
+    /* Ocupando toda a largura, como na imagem */
+    /* Adiciona uma transição suave para o efeito hover */
+    transition: background-color 0.3s ease;
+}
+
+/* 2. Efeito HOVER: Escurecendo o fundo ao passar o mouse */
+.btn-enviar:hover {
+    /* Escolhemos um tom de verde um pouco mais escuro */
+    background-color: #53c526;
+}
+
+/*==============LOGO POU-UP==============*/
+.logo-modal {
+    /* Define a largura da imagem. Ajuste o valor conforme necessário. */
+    width: 100px;
+    /* Garante que a imagem mantenha suas proporções. */
+    height: auto;
+    /* Centraliza a imagem no modal e adiciona um espaçamento inferior. */
+    display: block;
+    margin: 0 auto 15px auto;
+    border-radius: 15px;
+}
+
+/* Estilos para o <h2> dentro do modal */
+.modal-conteudo h2 {
+    /* Centraliza o texto horizontalmente */
+    text-align: center;
+
+    /* Define a cor do texto como azul. Você pode substituir 'blue' por um código hexadecimal (ex: #007BFF) para um tom específico. */
+    color: blue;
+}
+
+/* Container de cada input e ícone */
+.input-group {
+    /* Necessário para posicionar o ícone (filho) em relação a este bloco (pai) */
+    position: relative;
+    margin-bottom: 15px;
+    /* Espaço entre os campos */
+}
+
+/* Estilo do Ícone */
+.input-group .icon {
+    /* Tira o ícone do fluxo normal e o posiciona */
+    position: absolute;
+    /* Ajusta o ícone na vertical (centralizado) e na horizontal (esquerda) */
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    /* Ajuste fino para centralizar verticalmente */
+
+    color: #0508af;
+    /* Cor do ícone, ajuste se quiser */
+    font-size: 18px;
+    /* Tamanho do ícone */
+    z-index: 10;
+    /* Garante que o ícone fique na frente do input */
+}
+
+/* Estilo do Input */
+.input-group input {
+    /* Adiciona um padding (espaçamento interno) à esquerda para o texto não ficar embaixo do ícone */
+    padding-left: 40px;
+    text-indent: 30px;
+    /* Garante que o input ocupe 100% da largura do seu container (.input-group) */
+    width: 100%;
+    /* Outros estilos de input que você já deve ter... */
+    box-sizing: border-box;
+    /* Garante que o padding não aumente a largura total */
+    height: 45px;
+    /* Exemplo de altura */
+}
+
+/* Estilo para os inputs quando estão em foco (clicados) */
+.input-group input:focus {
+    /* 1. Remove a borda padrão do navegador (outline) que pode ser feia */
+    outline: none;
+    
+    /* 2. Adiciona uma borda colorida para destaque. Usando o azul do título como exemplo. */
+    border: 2px solid #007BFF; /* Exemplo de azul, ajuste se o seu for outro tom */
+    
+    /* 3. Ajusta o box-shadow para um efeito visual mais suave (opcional) */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+/* Estilos para o conteúdo do modal em telas grandes (Desktop) */
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza vertical e horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 500px; /* Largura máxima para desktop */
+    width: 90%; /* Usa 90% da largura da tela, no máximo 500px */
+    border-radius: 8px; /* Toque visual agradável */
+}
+/* Media Query para telas menores que 600px (smartphones) */
+@media (max-width: 600px) {
+    
+    /* 1. Ajusta o posicionamento e largura do conteúdo do modal */
+    .modal-conteudo {
+        width: 95%; /* Ocupa quase toda a largura para aproveitar o espaço */
+        margin: 5% auto; /* Reduz a margem superior para aparecer mais alto na tela */
+        padding: 15px; /* Reduz um pouco o padding interno */
+    }
+
+    /* 2. Opcional: Ajusta o tamanho da logo para não ser muito grande no celular */
+    .logo-modal {
+        width: 80px; /* Deixa a logo um pouco menor */
+    }
+
+    /* 3. Opcional: Ajusta o tamanho da fonte do título principal */
+    .modal-conteudo h2 {
+        font-size: 24px;
+    }
 }
