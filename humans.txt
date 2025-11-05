@@ -1,5 +1,13 @@
-/* Team */
-Consultor: Pedro Santoro
-Contato: +55 21 98537-1561
-Website: https://pedro-santoro.github.io/conveniosmedicos
-Local: Rio de Janeiro - RJ
+/* TEAM */
+  Consultor: Pedro Santoro
+  Local: Rio de Janeiro, RJ
+  
+/* CONTACT */
+  Website: https://planosdesaudephs.com.br/
+  Contato: +55 21 98537-1561
+  Links: https://linktr.ee/pedrosantoro
+
+/* SITE */
+  Última Modificação: 04/11/2025
+  Linguagem: Português (pt-BR)
+  Componentes: HTML5, CSS3, JavaScript
