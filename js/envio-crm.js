@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   origemInput.value = hostname;
 
-  // Define o redirecionamento conforme o domínio
   redirectUrl =
     url.includes("convenios.planosdesaudephs.com.br") ? "https://convenios.planosdesaudephs.com.br/sucesso.html" :
     url.includes("empresa.planosdesaudephs.com.br") ? "https://empresa.planosdesaudephs.com.br/obrigado.html" :
@@ -19,21 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
     url.includes("planosdesaudephs.com.br") ? "https://planosdesaudephs.com.br/obrigado.html" :
     "https://planosdesaudephs.com.br/";
 
-  // Cria uma mensagem visual
+  // Mensagem visual
   const msg = document.createElement("div");
   msg.id = "mensagem-envio";
   msg.textContent = "Enviando seus dados...";
-  msg.style.position = "fixed";
-  msg.style.top = "0";
-  msg.style.left = "0";
-  msg.style.width = "100%";
-  msg.style.background = "#0d6efd";
-  msg.style.color = "#fff";
-  msg.style.textAlign = "center";
-  msg.style.padding = "10px";
-  msg.style.fontSize = "16px";
-  msg.style.zIndex = "9999";
-  msg.style.display = "none";
+  Object.assign(msg.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100%",
+    background: "#0d6efd",
+    color: "#fff",
+    textAlign: "center",
+    padding: "10px",
+    fontSize: "16px",
+    zIndex: "9999",
+    display: "none"
+  });
   document.body.appendChild(msg);
 
   form.addEventListener("submit", async (ev) => {
@@ -49,23 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
         body: dados
       });
 
+      // Captura o texto e remove espaços/quebras de linha
       const texto = (await resposta.text()).trim();
-      console.log("Status do CRM:", resposta.status);
-      console.log("Texto de resposta:", texto);
+      console.log("Status:", resposta.status, "Texto:", texto);
 
-      // ⚙️ Aqui está a mudança importante:
-      if (resposta.ok || texto.toLowerCase().includes("ok")) {
+      // Se for 200 e o texto for "OK" (de qualquer forma), considera sucesso
+      if (resposta.ok && /^ok$/i.test(texto)) {
         msg.textContent = "Cadastro enviado com sucesso! Redirecionando...";
       } else {
-        msg.textContent = "Envio concluído, mas resposta inesperada. Redirecionando...";
+        msg.textContent = "Envio realizado, redirecionando...";
       }
 
       setTimeout(() => {
         window.location.href = redirectUrl;
       }, 1000);
+
     } catch (erro) {
-      console.error("Erro no envio para o CRM:", erro);
-      msg.textContent = "Erro no envio, redirecionando...";
+      console.error("Erro no envio:", erro);
+      msg.textContent = "Erro de conexão, redirecionando...";
       setTimeout(() => {
         window.location.href = redirectUrl;
       }, 1200);
