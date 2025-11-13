@@ -13,11 +13,6 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://planosdesaudephs.com.br/index.html</loc>
-  <lastmod>2025-11-01T03:45:22+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://planosdesaudephs.com.br/sobre.html</loc>
   <lastmod>2025-11-01T03:45:22+00:00</lastmod>
   <priority>0.80</priority>
@@ -37,6 +32,7 @@
   <lastmod>2025-11-01T03:45:22+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+
 
 
 </urlset>
