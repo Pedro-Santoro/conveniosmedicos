@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{let e=document.querySelectorAll(".flip-inner");e.forEach(e=>{e.addEventListener("click",()=>{document.querySelectorAll(".flip-inner.mobile-active").forEach(l=>{l!==e&&l.classList.remove("mobile-active")}),e.classList.toggle("mobile-active")})})});

@@ -1,0 +1,1 @@
+document.querySelectorAll(".flip-card").forEach(e=>{e.addEventListener("click",()=>{e.classList.toggle("flip-active")})});
