@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Obrigado!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigado! Retornaremos em breve.</title>
   <meta http-equiv="refresh" content="5;url=index.html"> <!-- ⏳ Redireciona em 5 segundos -->
   <link rel="stylesheet" href="css/obrigado.css">
   <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -34,35 +35,7 @@
   <!-- Confete 🎉 -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script>
-    // Confete animado
-    function estourarConfete() {
-      const duration = 3 * 1000;
-      const end = Date.now() + duration;
-
-      (function frame() {
-        confetti({
-          particleCount: 6,
-          startVelocity: 25,
-          spread: 360,
-          ticks: 80,
-          origin: { x: Math.random(), y: Math.random() - 0.2 }
-        });
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }
-    window.onload = estourarConfete;
-
-    // Contagem regressiva ⏱️
-    let contador = 5;
-    const spanContador = document.getElementById('contador');
-
-    const intervalo = setInterval(() => {
-      contador--;
-      spanContador.textContent = contador;
-      if (contador <= 0) clearInterval(intervalo);
-    }, 1000);
+const duration=3e3,animationEnd=Date.now()+3e3;!function n(){let o=animationEnd-Date.now();!(o<=0)&&(confetti({particleCount:5,angle:60*Math.random()+60,spread:70,origin:{x:Math.random(),y:Math.random()-.2}}),requestAnimationFrame(n))}();
   </script>
 </body>
 

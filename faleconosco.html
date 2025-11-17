@@ -175,10 +175,8 @@
             <p>Nossos representantes vão lhe auxiliar no que for necessário.</p><br>
 
             <article>
-              <form class="form-contato" action="https://formsubmit.co/santoro.perito@gmail.com" method="POST">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://planosdesaudephs.com.br/obrigado.html">
+              <form action="https://api.web3forms.com/submit" method="POST">
+			    <input type="hidden" name="access_key" value="27b5b3a5-2222-4a78-9a32-9f15fa5a7550">
                 <div>
                   <label for="nome">Nome:</label>
                   <input type="text" name="nome" id="nome" required placeholder="Digite aqui seu Nome!">
@@ -225,6 +223,7 @@
                   <textarea rows="4" name="mensagem" id="mensagem" placeholder="Digite aqui sua Mensagem detalhada!"
                     required></textarea>
                 </div>
+				<input type="hidden" name="redirect" value="https://planosdesaudephs.com.br/obrigado.html">
                 <input type="submit" name="BTEnvia" value="FALE CONOSCO AGORA!">
               </form>
             </article>

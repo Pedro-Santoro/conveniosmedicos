@@ -186,11 +186,9 @@
               opção.</p><br>
 
             <article>
-              <form class="form-contato" action="https://formsubmit.co/sorrisoguara@gmail.com" method="POST">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://planosdesaudephs.com.br/obrigado.html">
-
+              <form action="https://api.web3forms.com/submit" method="POST">
+			    <input type="hidden" name="access_key" value="27b5b3a5-2222-4a78-9a32-9f15fa5a7550">
+                
                 <div>
                   <label for="nome">Seu nome* (obrigatório):</label>
                   <input type="text" id="nome" name="nome" required placeholder="Digite aqui seu Nome!">
@@ -331,6 +329,7 @@
                 </div>
 
                 <div>
+				<input type="hidden" name="redirect" value="https://planosdesaudephs.com.br/obrigado.html">
                   <input type="submit" name="BTEnvia" value="ENVIAR MENSAGEM AGORA!">
                 </div>
               </form>
