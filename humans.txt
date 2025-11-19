@@ -1,13 +1,21 @@
-/* TEAM */
-  Consultor: Pedro Santoro
-  Local: Rio de Janeiro, RJ
-  
-/* CONTACT */
-  Website: https://planosdesaudephs.com.br/
-  Contato: +55 21 98537-1561
-  Links: https://linktr.ee/pedrosantoro
+/* ============================
+   TEAM
+   ============================ */
+   Consultor: Pedro Santoro
+   Local: Rio de Janeiro, RJ
 
-/* SITE */
-  Última Modificação: 16/11/2025
-  Linguagem: Português (pt-BR)
-  Componentes: HTML5, CSS3, JavaScript
+/* ============================
+   CONTACT
+   ============================ */
+   Website: https://planosdesaudephs.com.br/
+   Contato: +55 21 98537-1561
+   Links:
+     - https://linktr.ee/pedrosantoro
+     - https://panfleto.planosdesaudephs.com.br/
+
+/* ============================
+   SITE
+   ============================ */
+   Última Modificação: 16/11/2025
+   Linguagem: Português (pt-BR)
+   Componentes: HTML5, CSS3, JavaScript
